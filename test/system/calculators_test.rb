@@ -14,6 +14,10 @@ class CalculatorsTest < ApplicationSystemTestCase
     visit calculators_url
     click_on "New Calculator"
 
+    fill_in "Down payment", with: @calculator.down_payment
+    fill_in "Interest rate", with: @calculator.interest_rate
+    fill_in "Number of years", with: @calculator.number_of_years
+    fill_in "Property price", with: @calculator.property_price
     click_on "Create Calculator"
 
     assert_text "Calculator was successfully created"
@@ -24,6 +28,10 @@ class CalculatorsTest < ApplicationSystemTestCase
     visit calculators_url
     click_on "Edit", match: :first
 
+    fill_in "Down payment", with: @calculator.down_payment
+    fill_in "Interest rate", with: @calculator.interest_rate
+    fill_in "Number of years", with: @calculator.number_of_years
+    fill_in "Property price", with: @calculator.property_price
     click_on "Update Calculator"
 
     assert_text "Calculator was successfully updated"

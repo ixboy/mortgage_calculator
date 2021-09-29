@@ -5,6 +5,10 @@
 <table>
   <thead>
     <tr>
+      <th>Number of years</th>
+      <th>Property price</th>
+      <th>Down payment</th>
+      <th>Interest rate</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,6 +16,10 @@
   <tbody>
     <% @calculators.each do |calculator| %>
       <tr>
+        <td><%= calculator.number_of_years %></td>
+        <td><%= calculator.property_price %></td>
+        <td><%= calculator.down_payment %></td>
+        <td><%= calculator.interest_rate %></td>
         <td><%= link_to 'Show', calculator %></td>
         <td><%= link_to 'Edit', edit_calculator_path(calculator) %></td>
         <td><%= link_to 'Destroy', calculator, method: :delete, data: { confirm: 'Are you sure?' } %></td>

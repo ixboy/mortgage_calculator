@@ -64,6 +64,6 @@ class CalculatorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def calculator_params
-      params.fetch(:calculator, {})
+      params.require(:calculator).permit(:number_of_years, :property_price, :down_payment, :interest_rate)
     end
 end
