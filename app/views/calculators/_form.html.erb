@@ -1,0 +1,17 @@
+<%= form_with(model: calculator) do |form| %>
+  <% if calculator.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(calculator.errors.count, "error") %> prohibited this calculator from being saved:</h2>
+
+      <ul>
+        <% calculator.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
