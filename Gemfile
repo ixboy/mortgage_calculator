@@ -6,21 +6,17 @@ ruby '3.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 
-gem 'rails_12factor', group: :production
-# Use sqlite3 as the database for Active Record
-# Use Puma as the app server
 gem 'puma', '~> 5.0'
-# Use SCSS for stylesheets
 gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'sass-rails', '>= 6'
 
 group :production do
   gem 'pg'
+  gem 'rails_12factor'
 end
 group :development do
   gem 'sqlite3', '~> 1.4'
 end
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 5.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
