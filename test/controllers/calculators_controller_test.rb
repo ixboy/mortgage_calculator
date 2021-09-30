@@ -17,7 +17,9 @@ class CalculatorsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create calculator" do
     assert_difference('Calculator.count') do
-      post calculators_url, params: { calculator: { down_payment: @calculator.down_payment, interest_rate: @calculator.interest_rate, number_of_years: @calculator.number_of_years, property_price: @calculator.property_price } }
+      post calculators_url,
+           params: { calculator: { down_payment: @calculator.down_payment, interest_rate: @calculator.interest_rate,
+                                   number_of_years: @calculator.number_of_years, property_price: @calculator.property_price } }
     end
 
     assert_redirected_to calculator_url(Calculator.last)
@@ -34,7 +36,9 @@ class CalculatorsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update calculator" do
-    patch calculator_url(@calculator), params: { calculator: { down_payment: @calculator.down_payment, interest_rate: @calculator.interest_rate, number_of_years: @calculator.number_of_years, property_price: @calculator.property_price } }
+    patch calculator_url(@calculator),
+          params: { calculator: { down_payment: @calculator.down_payment, interest_rate: @calculator.interest_rate,
+                                  number_of_years: @calculator.number_of_years, property_price: @calculator.property_price } }
     assert_redirected_to calculator_url(@calculator)
   end
 
