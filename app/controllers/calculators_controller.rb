@@ -1,4 +1,6 @@
 class CalculatorsController < ApplicationController
+  # rubocop:disable Layout/LineLength
+
   before_action :set_calculator, only: %i[show edit update destroy]
 
   def index
@@ -14,3 +16,4 @@ class CalculatorsController < ApplicationController
     end
   end
 end
+# rubocop:unable Layout/LineLength
