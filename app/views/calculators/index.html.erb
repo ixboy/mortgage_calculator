@@ -1,67 +1,47 @@
+<div class="container row">
+    <div class="col-md-6">
+      <div class="">
+        <%= form_tag root_path, method: :get do |form| %>
+          <div class="field">
+            <p>Home price</p>
+            <%= number_field_tag 'calculate[property_price]' %>
+          </div>
+          <div class="field">
+            <p>Down payment</p>
+            <%= number_field_tag 'calculate[down_payment]' %>
+          </div>
+          <div class="field">
+            <p>Interest rate </p>
+            <%= text_field_tag 'calculate[interest_rate]' %>
+          </div>
+          <div class="field">
+            <p>Length of loan in years</p>
+            <%= number_field_tag 'calculate[number_of_years]' %>
+          </div>
 
-<div class="collapse" id="navbarToggleExternalContent">
-  <div class="bg-dark p-4">
-    <h5 class="text-white h4">Collapsed content</h5>
-    <span class="text-muted">Toggleable via the navbar brand.</span>
+          <div class="field">
+          <%= submit_tag 'Calculate!'%>
+          </div>
+        <% end %>
+        </div>
+
+    </div>
+  <div class="col-md-6">
+
+    <div class="jumbotron jumbotron-fluid">
+    <h2 class="display-5">Monthly payment </h2>
+    <h3 class="lead "> <%= number_to_currency(@monthly_payment) %><h3>
+    <hr class="my-4">
+    <p class="lead">
+    </p>
+    </div>
+
+    <div class="jumbotron jumbotron-fluid">
+      <h2 class="display-5">Total interest </h2>
+      <h3 class="lead "> <%= number_to_currency(@monthly_payment) %><h3>
+      <hr class="my-4">
+      <p class="lead"> </p>
+    </div>
+
   </div>
 </div>
-<nav class="navbar navbar-dark bg-dark">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  </div>
-</nav>
-
-<main>
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Album example</h1>
-        <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-        <p>
-          <a href="#" class="btn btn-primary my-2">Main call to action</a>
-          <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-        </p>
-      </div>
-    </div>
-  </section>
-</main>
-<p id="notice"><%= notice %></p>
-<div class="container">
-      <div class="row">
-        <div class="col-md-8">
-  <%= form_tag root_path, method: :get do |form| %>
-  <div class="field">
-    <p>Home price</p>
-    <%= number_field_tag 'calculate[property_price]' %>
-  </div>
-    <div class="field">
-    <p>Down payment</p>
-    <%= number_field_tag 'calculate[down_payment]' %>
-  </div>
-    <div class="field">
-    <p>Interest rate </p>
-    <%= text_field_tag 'calculate[interest_rate]' %>
-  </div>
-    <div class="field">
-    <p>Length of loan in years</p>
-    <%= number_field_tag 'calculate[number_of_years]' %>
-  </div>
-
-  <div class="field">
-    <%= submit_tag 'Calculate!'%>
-  </div>
-<% end %>
-
-        </div>
-        <div class="col-md-4">
-
-
-<h1>Calculators</h1>
-
-  <h1>monthly Payment is: <%= number_to_currency(@monthly_payment) %> </h1>
-
-        </div>
-      </div>
-    </div>
