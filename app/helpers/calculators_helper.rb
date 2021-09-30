@@ -13,7 +13,7 @@ module CalculatorsHelper
     monthly_pay * (number_of_years * 12)
   end
 
-  def percent_of(n)
-    (n.to_f / 100) / 12
+  def percent_of(num)
+    (num.to_f / 100) / 12
   end
 end

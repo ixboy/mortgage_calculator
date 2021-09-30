@@ -1,4 +1,5 @@
 class CalculatorsController < ApplicationController
+  # rubocop:disable Lint/RedundantCopDisableDirective
   # rubocop:disable Layout/LineLength
 
   before_action :set_calculator, only: %i[show edit update destroy]
@@ -16,4 +17,5 @@ class CalculatorsController < ApplicationController
     end
   end
 end
-# rubocop:unable Layout/LineLength
+# rubocop:enable Layout/LineLength
+# rubocop:enable Lint/RedundantCopDisableDirective
