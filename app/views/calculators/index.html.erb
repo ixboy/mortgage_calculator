@@ -1,26 +1,36 @@
-<div class="container row">
+<div class="container row mt-3">
+<h1 class="text-aligne-center">Loan Calculator</h1>
+<h5 class="text-aligne-center">PLEASE do only put numbers for results to be accurate</h5>
     <div class="col-md-6">
-      <div class="">
+      <div class="container flex">
         <%= form_tag root_path, method: :get do |form| %>
           <div class="field">
-            <p>Home price</p>
-            <%= number_field_tag 'calculate[property_price]' %>
+            <p class="form-label mt-2">Home price</p>
+            <%= number_field_tag 'calculate[property_price]', placeholder: 'put the amount here...', 
+                                class: 'form-control',
+                                required: true %>
+          </div>
+          <div class="field ">
+            <p class="form-label mt-2">Down payment</p>
+            <%= number_field_tag 'calculate[down_payment]', placeholder: 'how much do you have?...', 
+                                class: 'form-control',
+                                required: true %>
           </div>
           <div class="field">
-            <p>Down payment</p>
-            <%= number_field_tag 'calculate[down_payment]' %>
+            <p class="form-label mt-2">Interest rate </p>
+             <%= text_field_tag 'calculate[interest_rate]' %>
           </div>
           <div class="field">
-            <p>Interest rate </p>
-            <%= text_field_tag 'calculate[interest_rate]' %>
+            <p class="form-label mt-2">Length of loan in years</p>
+            <%= number_field_tag 'calculate[number_of_years]',placeholder: 'years..',class: 'form-control', placeholder: 'how much do you have?...', 
+                                class: 'form-control',
+                                required: true %>
           </div>
-          <div class="field">
-            <p>Length of loan in years</p>
-            <%= number_field_tag 'calculate[number_of_years]' %>
+          <div class="d-grid gap-2 d-md-block">
+             <%= submit_tag 'Calculate!', class:"btn btn-dark"%>
           </div>
 
           <div class="field">
-          <%= submit_tag 'Calculate!'%>
           </div>
         <% end %>
         </div>
@@ -30,15 +40,15 @@
 
     <div class="jumbotron jumbotron-fluid">
     <h2 class="display-5">Monthly payment </h2>
-    <h3 class="lead "> <%= number_to_currency(@monthly_payment) %><h3>
+    <h3 class="lead last"> <%= number_to_currency(@monthly_payment) %><h3>
     <hr class="my-4">
     <p class="lead">
     </p>
     </div>
 
     <div class="jumbotron jumbotron-fluid">
-      <h2 class="display-5">Total interest </h2>
-      <h3 class="lead "> <%= number_to_currency(@monthly_payment) %><h3>
+      <h2 class="display-5">Full payment </h2>
+      <h3 class="lead last"> <%= number_to_currency(@full_payment) %><h3>
       <hr class="my-4">
       <p class="lead"> </p>
     </div>

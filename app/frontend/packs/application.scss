@@ -7,7 +7,7 @@ body {
     rgba(125, 185, 232, 0) 100%
   ); /* FF3.6-15 */
 
-  background:  -webkit-linear-gradient(
+  background: -webkit-linear-gradient(
     top,
     rgba(30, 87, 153, 1) 0%,
     rgba(30, 87, 153, 0.54) 46%,
@@ -15,7 +15,7 @@ body {
     rgba(125, 185, 232, 0) 100%
   ); /* Chrome10-25,Safari5.1-6 */
 
-    background : linear-gradient(
+  background: linear-gradient(
     to bottom,
     rgba(30, 87, 153, 1) 0%,
     rgba(30, 87, 153, 0.54) 46%,
@@ -25,7 +25,18 @@ body {
 }
 
 h3 {
-  color: white
+  color: #fff;
 }
+
+.last {
+  background: #3669a4;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 // Import Bootstrap v5
 @import "~bootstrap/scss/bootstrap";
