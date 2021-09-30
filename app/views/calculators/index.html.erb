@@ -1,33 +1,38 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+      <div class="row">
+        <div class="col-md-8">
+  <%= form_tag root_path, method: :get do |form| %>
+  <div class="field">
+    <p>Home price</p>
+    <%= number_field_tag 'calculate[property_price]' %>
+  </div>
+    <div class="field">
+    <p>Down payment</p>
+    <%= number_field_tag 'calculate[down_payment]' %>
+  </div>
+    <div class="field">
+    <p>Interest rate </p>
+    <%= text_field_tag 'calculate[interest_rate]' %>
+  </div>
+    <div class="field">
+    <p>Length of loan in years</p>
+    <%= number_field_tag 'calculate[number_of_years]' %>
+  </div>
+
+  <div class="field">
+    <%= submit_tag 'Calculate!'%>
+  </div>
+<% end %>
+
+        </div>
+        <div class="col-md-4">
+
 
 <h1>Calculators</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Number of years</th>
-      <th>Property price</th>
-      <th>Down payment</th>
-      <th>Interest rate</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <h1>monthly Payment is: <%= number_to_currency(@monthly_payment) %> </h1>
 
-  <tbody>
-    <% @calculators.each do |calculator| %>
-      <tr>
-        <td><%= calculator.number_of_years %></td>
-        <td><%= calculator.property_price %></td>
-        <td><%= calculator.down_payment %></td>
-        <td><%= calculator.interest_rate %></td>
-        <td><%= link_to 'Show', calculator %></td>
-        <td><%= link_to 'Edit', edit_calculator_path(calculator) %></td>
-        <td><%= link_to 'Destroy', calculator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Calculator', new_calculator_path %>
+        </div>
+      </div>
+    </div>
