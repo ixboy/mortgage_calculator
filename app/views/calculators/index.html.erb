@@ -3,6 +3,7 @@
 <h5 class="text-aligne-center">PLEASE do only put numbers for results to be accurate</h5>
     <div class="col-md-6">
       <div class="container flex">
+      
         <%= form_tag root_path, method: :get do |form| %>
           <div class="field">
             <p class="form-label mt-2">Home price</p>
@@ -18,7 +19,7 @@
           </div>
           <div class="field">
             <p class="form-label mt-2">Interest rate </p>
-             <%= text_field_tag 'calculate[interest_rate]' %>
+             <%= number_field_tag 'calculate[interest_rate]' %>
           </div>
           <div class="field">
             <p class="form-label mt-2">Length of loan in years</p>
