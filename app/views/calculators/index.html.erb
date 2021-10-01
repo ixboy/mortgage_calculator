@@ -1,58 +1,43 @@
 <div class="container row mt-3">
 <h1 class="text-aligne-center">Loan Calculator</h1>
-<h5 class="text-aligne-center">PLEASE do only put numbers for results to be accurate</h5>
-    <div class="col-md-6">
-      <div class="container flex">
-      
-        <%= form_tag root_path, method: :get do |form| %>
-          <div class="field">
-            <p class="form-label mt-2">Home price</p>
-            <%= number_field_tag 'calculate[property_price]', placeholder: 'put the amount here...', 
-                                class: 'form-control',
-                                required: true %>
-          </div>
-          <div class="field ">
-            <p class="form-label mt-2">Down payment</p>
-            <%= number_field_tag 'calculate[down_payment]', placeholder: 'how much do you have?...', 
-                                class: 'form-control',
-                                required: true %>
-          </div>
-          <div class="field">
-            <p class="form-label mt-2">Interest rate </p>
-             <%= number_field_tag 'calculate[interest_rate]' %>
-          </div>
-          <div class="field">
-            <p class="form-label mt-2">Length of loan in years</p>
-            <%= number_field_tag 'calculate[number_of_years]',placeholder: 'years..',class: 'form-control', placeholder: 'how much do you have?...', 
-                                class: 'form-control',
-                                required: true %>
-          </div>
-          <div class="d-grid gap-2 d-md-block">
-             <%= submit_tag 'Calculate!', class:"btn btn-dark"%>
-          </div>
-
-          <div class="field">
-          </div>
-        <% end %>
-        </div>
-
-    </div>
-  <div class="col-md-6">
-
-    <div class="jumbotron jumbotron-fluid">
+<h5 class="text-aligne-center">Please only put numbers for results to be accurate</h5>
+<div class="col-md-6">
+  <div class="container flex">
+    <%= form_with url: root_path, local: true, method: :get, class: "form user-form" do |f| %>
+      <div class="form-field my-2">
+        <%= f.label "principal Amount:" %>
+        <%= f.number_field :property_price, placeholder: "$500000", required: true, class: 'form-control' %>
+      </div>
+      <div class="form-field my-2">
+        <%= f.label "Down payment:" %>
+        <%= f.number_field :down_payment, placeholder: "100000", required: true, class: 'form-control' %>
+      </div>
+      <div class="form-field my-2">
+        <%= f.label "Interest rate:" %>
+        <%= f.number_field :interest_rate, placeholder: "5%", required: true, class: 'form-control' %>
+      </div>
+      <div class="form-field my-2">
+        <%= f.label "how many years:" %>
+        <%= f.select :number_of_years, [["20-years", "20"], ["25-years", "25"], ["30-years", "30"], ["35-years", "35"], ["40-years", "40"], ["45-years", "45"], ["50-years", "50"]], selected: "30", class: 'form-control' %>
+      </div>
+      <div class="form-field my-2">
+        <%= f.submit "Calculate!", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="col-md-6">
+  <div class="jumbotron jumbotron-fluid">
     <h2 class="display-5">Monthly payment </h2>
     <h3 class="lead last"> <%= number_to_currency(@monthly_payment) %><h3>
     <hr class="my-4">
-    <p class="lead">
-    </p>
-    </div>
+    <p class="lead"></p>
+  </div>
 
-    <div class="jumbotron jumbotron-fluid">
-      <h2 class="display-5">Full payment </h2>
-      <h3 class="lead last"> <%= number_to_currency(@full_payment) %><h3>
-      <hr class="my-4">
-      <p class="lead"> </p>
-    </div>
-
+  <div class="jumbotron jumbotron-fluid">
+    <h2 class="display-5">Full payment </h2>
+    <h3 class="lead last"> <%= number_to_currency(@full_payment) %><h3>
+    <hr class="my-4">
+    <p class="lead"> </p>
   </div>
 </div>
