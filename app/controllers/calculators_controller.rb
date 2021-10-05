@@ -6,8 +6,8 @@ class CalculatorsController < ApplicationController
 
   def index
     if params
-      property_price = params[:property_price].to_i
-      down_payment = params[:down_payment].to_i
+      property_price = params[:property_price].to_f
+      down_payment = params[:down_payment].to_f
       interest_rate = params[:interest_rate].to_f
       number_of_years = params[:number_of_years].to_i
       @monthly_payment = helpers.payment(property_price, down_payment, interest_rate, number_of_years)
