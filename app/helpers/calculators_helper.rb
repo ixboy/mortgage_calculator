@@ -1,14 +1,10 @@
 module CalculatorsHelper
   def payment(property_price, down_payment, interest_rate, number_of_years)
-    property_price = 500000 unless property_price
-    down_payment = 10000 unless down_payment
-    interest_rate = 5 unless interest_rate
-    number_of_years = 30 unless number_of_years
     months_in_a_year = 12
     n = number_of_years * months_in_a_year
     principal_amount = property_price - down_payment
-    monthly_int = (principal_amount * (interest_rate / 100)) / months_in_a_year
-    result = ((principal_amount / n) + monthly_int).ceil
+    monthly_int = (principal_amount * (interest_rate.to_f / 100)) / months_in_a_year
+    result = ((principal_amount / n) + monthly_int)
     result || 0
   end
 

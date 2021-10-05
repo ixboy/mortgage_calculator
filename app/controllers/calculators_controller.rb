@@ -6,6 +6,11 @@ class CalculatorsController < ApplicationController
 
   def index
     if params
+      property_price = 500000
+      down_payment = 100000 
+      interest_rate = 12 
+      number_of_years = 30 
+  
       property_price = params[:property_price].to_f
       down_payment = params[:down_payment].to_f
       interest_rate = params[:interest_rate].to_f
