@@ -4,7 +4,7 @@ module CalculatorsHelper
     n = number_of_years * months_in_a_year
     principal_amount = property_price - down_payment
     monthly_int = (principal_amount * (interest_rate.to_f / 100)) / months_in_a_year
-    result = ((principal_amount / n) + monthly_int)
+    result = (principal_amount / n) + monthly_int
     result || 0
   end
 

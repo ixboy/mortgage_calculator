@@ -5,6 +5,9 @@
 
 
 ## Screenshot
+<div align="center">
+    <img alt="screenshot" src="./app/assets/images/screenshot2.png" width="500">
+</div>
 
 
 ## Built With
